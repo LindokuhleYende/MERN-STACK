@@ -15,6 +15,7 @@ export default class MoviesDAO {
         try {
             movies = await conn.db(process.env.MOVIEREVIEWS_NS)
                 .collection('movies')
+            console.log("connected to movies collections")
         }
         catch (e) {
             console.error(`unable to connect in MoviesDAO: ${e}`)
@@ -79,7 +80,7 @@ export default class MoviesDAO {
         }
     }
 
-    static async getRatings() {
+    static async getRatings() { //Pg 13, FAM, 16
         let ratings = []
         try {
             //look for all possible ratings for all movies in movie object
