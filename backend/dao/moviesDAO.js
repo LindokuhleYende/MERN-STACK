@@ -94,22 +94,14 @@ export default class MoviesDAO {
         }
     }
 
-    static async addMovie(user, userID) {//creating a movie
+    static async addMovie(movieData) {
         try {
-            const date = new Date();
-            const movieDoc = {//create a movieDoc document object
-                name: user.name,
-                user_id: user._id,
-                date: date,
-                title: title,
-
-            };
-            return await reviews.insertOne(movieDoc)
-        }
-        catch (e) {
-            console.error(`unable to post review: ${e}`)
+            const result = await movies.insertOne(movieData);
+            return result;
+        } catch (e) {
+            console.error(`Unable to insert movie: ${e}`);
             return { error: e };
         }
-    }
 
+    }
 }
