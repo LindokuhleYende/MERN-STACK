@@ -94,4 +94,22 @@ export default class MoviesDAO {
         }
     }
 
+    static async addMovie(user, userID) {//creating a movie
+        try {
+            const date = new Date();
+            const movieDoc = {//create a movieDoc document object
+                name: user.name,
+                user_id: user._id,
+                date: date,
+                title: title,
+
+            };
+            return await reviews.insertOne(movieDoc)
+        }
+        catch (e) {
+            console.error(`unable to post review: ${e}`)
+            return { error: e };
+        }
+    }
+
 }
