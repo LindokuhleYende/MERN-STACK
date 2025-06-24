@@ -36,7 +36,7 @@ class MovieDataService {
 }
 
 const movieDataService = new MovieDataService();  //…creates an instance of your MovieDataService class
-//  allowing you to use all the defined methods—like getAll
+//  allowing you to use all the defined methods—like getAll, find(), createReview(), etc
 //without needing to repeatedly instantiate the class elsewhere.
 
 
