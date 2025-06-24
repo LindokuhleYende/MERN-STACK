@@ -35,6 +35,9 @@ class MovieDataService {
     }
 }
 
-const movieDataService = new MovieDataService();
+const movieDataService = new MovieDataService();  //…creates an instance of your MovieDataService class
+//  allowing you to use all the defined methods—like getAll
+//without needing to repeatedly instantiate the class elsewhere.
+
 
 export default movieDataService;
