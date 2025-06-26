@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import MovieDataService from '../services/movies'
 import { Link } from 'react-router-dom'
-import {Card, Container, Image, Col, Row, Button, Media }from 'react-bootstrap';
+import { Card, Container, Image, Col, Row, Button, Media } from 'react-bootstrap';
 import moment from 'moment';
+import "../styles/review.css"
 
 const Movie = props => {
    //default state
@@ -51,7 +52,7 @@ const Movie = props => {
    return (
       <div>
          {/* card to display a specific movie's information */}
-         <Container>
+         <Container fluid="md">
             <Row>
                <Col>
                   <Image src={movie.poster + "/100px250"} fluid />
@@ -65,7 +66,8 @@ const Movie = props => {
                         </Card.Text>
                         {props.user &&
                            <Link to={"/movies/" + props.match.params.id + "/review"}>
-                              Add Review
+                              <Button variant="success">Add Review</Button>
+
                            </Link>}
                      </Card.Body>
                   </Card>
@@ -75,7 +77,7 @@ const Movie = props => {
                   {/* mapping reviews for movie*/}
                   {movie.reviews.map((review, index) => {
                      return (
-                        <Media key={index}>
+                        <Media className="review-container" key={index}>
                            <Media.Body>
                               {/* username and date posted. date is formatteed */}
                               <h5>{review.name + " reviewed on "} {moment(review.date).format("Do MMMM YYYY")}</h5>
@@ -89,10 +91,15 @@ const Movie = props => {
                                           "/review",
                                        state: { currentReview: review }
                                        //link to edit
-                                    }}>Edit</Link>
+                                    }}>
+                                       <Button variant="info">
+                                          Edit
+                                       </Button>
+
+                                    </Link>
                                     </Col>
                                     {/* link to delete */}
-                                    <Col><Button variant="link" onClick={() => deleteReview(review._id, index)}>Delete</Button></Col>
+                                    <Col><Button variant="danger" onClick={() => deleteReview(review._id, index)}>Delete</Button></Col>
                                  </Row>
                               }
                            </Media.Body>
