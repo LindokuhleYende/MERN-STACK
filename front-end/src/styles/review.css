@@ -1,0 +1,10 @@
+.review-container {
+    max-width: 600px;
+    margin: 60px auto;
+    background: linear-gradient(135deg, #ffe0f0, #f0e7ff);
+    border-radius: 20px;
+    box-shadow: 0 0 25px rgba(190, 140, 255, 0.4);
+    padding: 40px 30px;
+    font-family: 'Segoe UI', sans-serif;
+    animation: fadeIn 0.8s ease-in-out;
+}
