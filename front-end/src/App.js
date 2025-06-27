@@ -6,7 +6,7 @@ import AddReview from "./components/add-review";
 import MoviesList from "./components/movies-list";
 import Movie from "./components/movie";
 import Login from "./components/login";
-import { Nav, Navbar } from 'react-bootstrap';
+import { Button, Nav, Navbar } from 'react-bootstrap';
 import Contact from "./components/contact"
 
 function App() {
@@ -30,11 +30,16 @@ function App() {
               <Link to={'/movies'}>Movies</Link>
             </Nav.Link>
             <Nav.Link>
-              {user ? (<button onClick={logout}>Logout User</button>) : (<Link to={"/login"}>Login</Link>)}
+              <Link to={'/Contact'}>Contact</Link>
             </Nav.Link>
+
           </Nav>
+
           <Nav.Link>
-            <Link to={'/Contact'}>Contact</Link>
+            {user ? (<Button variant="primary" onClick={logout}>Logout User</Button>) : (<Link to={"/login"}>
+              <Button
+                variant='success'>Login</Button>
+            </Link>)}
           </Nav.Link>
         </Navbar.Collapse>
       </Navbar>
