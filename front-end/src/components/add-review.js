@@ -60,6 +60,7 @@ const AddReview = props => {
 
    return (
       <div className='addReview-container'>
+         <h2>Review</h2>
          {/* uses a ternary operator */}
          {submitted ? (
             <div>
@@ -69,6 +70,7 @@ const AddReview = props => {
                </Link>
             </div>
          ) : (
+
             <Form>
                <Form.Group>
                   <Form.Label>{editing ? "Edit" : "Create"} Review</Form.Label>
