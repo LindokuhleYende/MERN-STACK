@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { Form, Button, Row, Col } from 'react-bootstrap';
-
+import { Form, Button } from 'react-bootstrap';
+import "../styles/login.css"
 
 const Login = props => {
    //default state
@@ -23,31 +23,32 @@ const Login = props => {
    }
 
    return (
-      <div >
+      <div className='login-container'>
+         <h2>Login Form</h2>
          <Form>
-            <Form.Group as={Row} className="mb-3" controlId="Username">
-               <Form.Label column sm="2">Username:</Form.Label>
-               <Col sm="10">
-                  <Form.Control
-                     type="text"
-                     placeholder="Enter username"
-                     value={name}
-                     onChange={onChangeName}
-                  />
+            <Form.Group >
+               <Form.Label>Username:</Form.Label>
 
-               </Col>
+               <Form.Control
+                  type="text"
+                  placeholder="Enter username"
+                  value={name}
+                  onChange={onChangeName}
+               />
+
+
 
             </Form.Group>
-            <Form.Group as={Row} className="mb-3" controlId="id">
-               <Form.Label column sm="2">ID:</Form.Label>
-               <Col sm="10">
-                  <Form.Control
-                     type="text"
-                     placeholder="Enter id"
-                     value={id}
-                     onChange={onChangeId}
-                  />
-               </Col>
+            <Form.Group >
+               <Form.Label>ID:</Form.Label>
+
+               <Form.Control
+                  type="text"
+                  placeholder="Enter id"
+                  value={id}
+                  onChange={onChangeId}
+               />
+
 
             </Form.Group>
             <Button variant="primary" onClick={login}>
