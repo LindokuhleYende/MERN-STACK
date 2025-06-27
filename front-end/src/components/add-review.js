@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import MovieDataService from '../services/movies';
 import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
-
+import "../styles/add-review.css"
 
 const AddReview = props => {
 
@@ -59,7 +59,7 @@ const AddReview = props => {
 
 
    return (
-      <div>
+      <div className='addReview-container'>
          {/* uses a ternary operator */}
          {submitted ? (
             <div>
