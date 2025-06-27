@@ -3,6 +3,7 @@ import MovieDataService from '../services/movies';
 import { Link } from 'react-router-dom';
 import { Form, Button } from 'react-bootstrap';
 import "../styles/add-review.css"
+import GreetingBanner from './greetingBanner';
 
 const AddReview = props => {
 
@@ -61,6 +62,7 @@ const AddReview = props => {
    return (
       <div className='addReview-container'>
          <h2>Review</h2>
+         <GreetingBanner name={props.user.name} />
          {/* uses a ternary operator */}
          {submitted ? (
             <div>
