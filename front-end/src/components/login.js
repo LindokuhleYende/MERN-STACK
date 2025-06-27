@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Form, Button} from 'react-bootstrap';
+import { Form, Button, Row, Col } from 'react-bootstrap';
 
 
 const Login = props => {
@@ -23,29 +23,37 @@ const Login = props => {
    }
 
    return (
-      <div>
+      <div >
          <Form>
-            <Form.Group>
-               <Form.Label>Username</Form.Label>
-               <Form.Control
-                  type="text"
-                  placeholder="Enter username"
-                  value={name}
-                  onChange={onChangeName}
-               />
+            <Form.Group as={Row} className="mb-3" controlId="Username">
+               <Form.Label column sm="2">Username:</Form.Label>
+               <Col sm="10">
+                  <Form.Control
+                     type="text"
+                     placeholder="Enter username"
+                     value={name}
+                     onChange={onChangeName}
+                  />
+
+               </Col>
+
             </Form.Group>
-            <Form.Group>
-               <Form.Label>ID</Form.Label>
-               <Form.Control
-                  type="text"
-                  placeholder="Enter id"
-                  value={id}
-                  onChange={onChangeId}
-               />
+            <Form.Group as={Row} className="mb-3" controlId="id">
+               <Form.Label column sm="2">ID:</Form.Label>
+               <Col sm="10">
+                  <Form.Control
+                     type="text"
+                     placeholder="Enter id"
+                     value={id}
+                     onChange={onChangeId}
+                  />
+               </Col>
+
             </Form.Group>
             <Button variant="primary" onClick={login}>
                Submit
             </Button>
+
          </Form>
       </div>
    )
