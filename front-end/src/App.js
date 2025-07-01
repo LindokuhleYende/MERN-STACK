@@ -60,7 +60,8 @@ function App() {
           {/* login page */}
         </Route>
         <Route path="/login" render={(props) =>
-          <Login {...props} login={login} />
+          <Login {...props} login={login} />  //- Instead of using the component={} prop (which doesn’t allow custom props), 
+          // this uses render to pass extra props into the component manually.
         }>
         </Route>
         <Route exact path="/contact" component={Contact}>
