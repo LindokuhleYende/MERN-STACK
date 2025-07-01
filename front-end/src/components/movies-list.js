@@ -21,6 +21,8 @@ const MoviesList = props => {
    //ch 24
    const [currentSearchMode, setCurrentSearchMode] = useState("");//can findByTitle or by Rating
 
+   const [totalResults, setTotalResults] = useState(0); // total number of movies
+
    useEffect(() => {
       setCurrentPage(0)
       //page is changed and can be filtered according title etc.
@@ -54,7 +56,7 @@ const MoviesList = props => {
       // eslint-disable-next-line 
    }, [])
 
-   
+
    const retrieveMovies = () => {
       //ch 23
       setCurrentSearchMode("")
@@ -65,6 +67,9 @@ const MoviesList = props => {
             setCurrentPage(response.data.page)
             //ch 23
             setEntriesPerPage(response.data.entries_per_page)
+            //total movies
+            setTotalResults(response.data.total_results)
+
          })
          .catch(e => {
             console.log(e)
@@ -100,6 +105,8 @@ const MoviesList = props => {
          .then(response => {
             console.log(response.data)
             setMovies(response.data.movies)
+            //setTotal Results
+            setTotalResults(response.data.total_results)
          })
          .catch(e => {
             console.log(e)
@@ -187,15 +194,39 @@ const MoviesList = props => {
                })}
             </Row>
 
+            <div className="text-center mt-4">
+               <p>Showing page: {currentPage + 1}</p>
+               <p>
+                  {
+                     totalResults - (currentPage + 1) * entriesPerPage > 0
+                        ? `${totalResults - (currentPage + 1) * entriesPerPage} movies remaining `
+                        : "No more movies remaining"
+                  }
+               </p>
+
+               <Button
+                  variant="link"
+                  onClick={() => {
+                     if ((currentPage + 1) * entriesPerPage < totalResults) {
+                        setCurrentPage(currentPage + 1);
+                     }
+                  }}
+                  disabled={(currentPage + 1) * entriesPerPage >= totalResults}
+               >
+                  {(currentPage + 1) * entriesPerPage >= totalResults
+                     ? "No More Results"
+                     : `Get next ${entriesPerPage} results `}
+               </Button>
+            </div>
+
+
+
          </Container><br />
-         {/* ch 23 */}
-         Showing page: {currentPage}
-         <Button
-            variant="link"
-            onClick={() => { setCurrentPage(currentPage + 1) }}
-         >
-            Get next {entriesPerPage} results
-         </Button>
+
+
+
+
+
       </div>
    );
 }
