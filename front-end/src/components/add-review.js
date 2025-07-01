@@ -11,6 +11,9 @@ const AddReview = props => {
    let initialReviewState = ''
 
    //checks state to allow for editting to occur
+   // Checks if the route was navigated with a currentReview object in state. 
+   // If yes, it switches to edit mode and pre-fills the review input.
+
    if (props.location.state && props.location.state.currentReview) {
       editing = true
       initialReviewState = props.location.state.currentReview.review
