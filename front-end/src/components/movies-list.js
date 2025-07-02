@@ -23,6 +23,7 @@ const MoviesList = props => {
 
    const [totalResults, setTotalResults] = useState(0); // total number of movies
 
+
    useEffect(() => {
       setCurrentPage(0)
       //page is changed and can be filtered according title etc.
@@ -129,6 +130,11 @@ const MoviesList = props => {
       }
    }
 
+   // Run when searchClicked changes, logs current search inputs
+   useEffect(() => {
+      console.log("Title:", searchTitle);
+      console.log("Ratings:", ratings);
+   }, [searchTitle, ratings]);
    return (
       <div className="App">
          <Container>
