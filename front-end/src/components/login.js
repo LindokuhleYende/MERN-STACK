@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Button } from 'react-bootstrap';
 import "../styles/login.css"
 
@@ -22,9 +22,17 @@ const Login = props => {
       props.history.push('/')
    }
 
+   useEffect(() => {
+      console.log(`${name} (ID: ${id}) has logged in.`)
+
+   }, [name, id]);
+
+
    return (
       <div className='login-container'>
          <h2>Login Form</h2>
+
+
          <Form>
             <Form.Group >
                <Form.Label>Username:</Form.Label>
