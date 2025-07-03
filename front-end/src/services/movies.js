@@ -2,18 +2,10 @@ import axios from "axios";
 
 class MovieDataService {
     getAll(page = 0) { //Fetches all movies with optional pagination
-<<<<<<< HEAD
         return axios.get(`https://mern-stack-backend-9v4j.onrender.com/api/v1/movies?page=${page}`)
     }
     get(id) {
         return axios.get(`https://mern-stack-backend-9v4j.onrender.com/api/v1/movies/id/${id}`)
-=======
-        return axios.get(`https://mern-stack-backend-9v4j.onrender.com//api/v1/movies?page=${page}`)
-    }
-    get(id) {
-        return axios.get(`https://mern-stack-backend-9v4j.onrender.com//api/v1/movies/id/${id}`)
-        
->>>>>>> b2afe3e91ed9945f7c02ef664e68ae7aff1f0e46
     }
     // find(title) {
     //     return axios.get(
@@ -29,11 +21,7 @@ class MovieDataService {
         return axios.post("https://mern-stack-backend-9v4j.onrender.com/api/v1/movies/review", data)
     }
     updateReview(data) {//Updates an existing review via PUT.
-<<<<<<< HEAD
         return axios.put("https://mern-stack-backend-9v4j.onrender.com//api/v1/movies/review", data)
-=======
-        return axios.put("https://mern-stack-backend-9v4j.onrender.com/api/v1/movies/review", data)
->>>>>>> b2afe3e91ed9945f7c02ef664e68ae7aff1f0e46
     }
     deleteReview(id, userId) {//Sends a DELETE request, with both review and user IDs passed in the request body.
         return axios.delete(
